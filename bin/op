@@ -1,0 +1,31 @@
+#! /usr/bin/env zsh
+
+dir_list=`ls ~/builds/`
+other_dirs="dotfiles\n.config/nvim\n.tmux.config"
+dir_list="$dir_list\n$other_dirs"
+
+selected_dir=`echo $dir_list | fzf`
+full_dir=""
+if [ "$(printf "$other_dirs" | grep -c "$selected_dir" )" -ge 1 ];then
+  full_dir="~/$selected_dir"
+else
+  full_dir="~/builds/$selected_dir"
+fi
+
+case $1 in
+  "s")
+    zsh -c "cd $full_dir && tmux new -d -t $selected_dir && tmux neww -t $selected_dir zsh -c "nvim ." "
+    tmux a -t $selected_dir
+    ;;
+  "c")
+    zsh -c "echo $full_dir"
+    ;;
+  "n")
+    zsh -c "cd $full_dir && nvim ." 
+    ;;
+  "")
+    tmux neww zsh -c "cd $full_dir && nvim ." 
+    ;;
+esac
+
+

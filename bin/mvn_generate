@@ -1,0 +1,10 @@
+
+name=$1
+groupId="com.$name"
+artifactId="$name"
+archetype="maven-archetype-quickstart"
+version="1.4"
+
+cmd="mvn archetype:generate -DgroupId=$groupId -DartifactId=$artifactId -DarchetypeArtifactId=$archetype -DinteractiveMode=false"
+
+$cmd
