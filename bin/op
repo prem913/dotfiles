@@ -1,6 +1,6 @@
 #! /usr/bin/env zsh
 
-dir_list=`ls ~/builds/`
+dir_list=`ls /mnt/d/ubuntu/builds/`
 other_dirs="dotfiles\n.config/nvim\n.tmux.config"
 dir_list="$dir_list\n$other_dirs"
 
@@ -9,7 +9,7 @@ full_dir=""
 if [ "$(printf "$other_dirs" | grep -c "$selected_dir" )" -ge 1 ];then
   full_dir="~/$selected_dir"
 else
-  full_dir="~/builds/$selected_dir"
+  full_dir="/mnt/d/ubuntu/builds/$selected_dir"
 fi
 
 case $1 in
