@@ -1,5 +1,12 @@
 # My Dotfiles
 
+<!--toc:start-->
+- [My Dotfiles](#my-dotfiles)
+  - [Configuration](#configuration)
+    - [stow](#stow)
+    - [zsh](#zsh)
+<!--toc:end-->
+
 ## Configuration
 
 ### stow
